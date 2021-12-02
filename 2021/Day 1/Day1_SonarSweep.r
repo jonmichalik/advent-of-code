@@ -5,18 +5,20 @@ part1 <- function() {
 
     output <- character(length(readings))
 
-    last_reading <- readings[1]
+    last_reading <- strtoi(readings[1])
 
     for (i in seq_len(length(readings))) {
-        if (readings[i] > last_reading) {
+        reading <- strtoi(readings[i])
+
+        if (reading > last_reading) {
             output[i] <- "Increased"
-        } else if (readings[i] < last_reading) {
+        } else if (reading < last_reading) {
             output[i] <- "Decreased"
         } else {
             output[i] <- "No Change"
         }
 
-        last_reading <- readings[i]
+        last_reading <- reading
     }
 
     cat("  Depth increased ", sum(output == "Increased"), " times!")
