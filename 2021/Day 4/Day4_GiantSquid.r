@@ -8,7 +8,7 @@ part1 <- function() {
     boards <- parse_boards(readings[3:length(readings)], row_size)
 
     for (i in seq_len(length(call_numbers))) {
-        boards <- update_boards(boards, row_size, call_numbers[i])
+        boards <- update_boards_p1(boards, row_size, call_numbers[i])
 
         if (length(boards) == 1) {
             calc_winning_board(boards[[1]], call_numbers[i])
@@ -18,7 +18,27 @@ part1 <- function() {
 }
 
 part2 <- function() {
-    print("TODO")
+    readings <- readLines("Day4_input.txt")
+
+    call_numbers <- unlist(strsplit(readings[1], ","))
+    row_size <- 5
+    boards <- parse_boards(readings[3:length(readings)], row_size)
+
+    for (i in seq_len(length(call_numbers))) {
+        if (length(boards) > 1) {
+            boards <- update_boards_p2(boards, row_size, call_numbers[i])
+        } else {
+            # Finish filling out the last board
+            match <- which(boards[[1]] == call_numbers[i], arr.ind = TRUE)
+            if (length(match) > 0) {
+                boards[[1]][match[1, 1], match[1, 2]] <- "0"
+                if (is_winning_board(boards[[1]], row_size, match)) {
+                    calc_winning_board(boards[[1]], call_numbers[i])
+                    break
+                }
+            }
+        }
+    }
 }
 
 parse_boards <- function(input, row_size) {
@@ -42,7 +62,7 @@ parse_boards <- function(input, row_size) {
     boards
 }
 
-update_boards <- function(boards, row_size, call_num) {
+update_boards_p1 <- function(boards, row_size, call_num) {
     for (i in seq_len(length(boards))) {
         match <- which(boards[[i]] == call_num, arr.ind = TRUE)
         if (length(match) > 0) {
@@ -56,6 +76,30 @@ update_boards <- function(boards, row_size, call_num) {
     boards
 }
 
+update_boards_p2 <- function(boards, row_size, call_num) {
+    indices_to_remove <- ""
+    for (i in seq_len(length(boards))) {
+        match <- which(boards[[i]] == call_num, arr.ind = TRUE)
+        if (length(match) > 0) {
+            boards[[i]][match[1, 1], match[1, 2]] <- "0"
+            if (is_winning_board(boards[[i]], row_size, match)) {
+                indices_to_remove <- paste(indices_to_remove, i)
+            }
+        }
+    }
+
+    # Remove winning boards from the pool
+    indices <- rev(strtoi(unlist(strsplit(R.oo::trim(indices_to_remove), " "))))
+    for (i in seq_len(length(indices))) {
+        index_to_remove <- indices[i]
+        boards <- boards[-index_to_remove]
+        if (length(boards) == 1) {
+            break
+        }
+    }
+    boards
+}
+
 is_winning_board <- function(board, row_size, last_match) {
     sum(board[last_match[1, 1], ] == "0") == row_size ||
     sum(board[, last_match[1, 2]] == "0") == row_size
@@ -63,7 +107,9 @@ is_winning_board <- function(board, row_size, last_match) {
 
 calc_winning_board <- function(board, call_num) {
     print(board)
+    print(call_num)
     print(sum(strtoi(board)) * strtoi(call_num))
 }
 
 part1()
+part2()
