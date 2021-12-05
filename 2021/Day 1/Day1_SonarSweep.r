@@ -1,7 +1,11 @@
 # Day 1: Sonar Sweep
 
+get_day1_input_path <- function() {
+    paste(getwd(), "/2021/Day 1/Day1_input.txt", sep = "")
+}
+
 part1 <- function() {
-    readings <- readLines("Day1_input.txt")
+    readings <- readLines(get_day1_input_path())
 
     output <- character(length(readings))
 
@@ -25,7 +29,7 @@ part1 <- function() {
 }
 
 part2 <- function() {
-    readings <- readLines("Day1_input.txt")
+    readings <- readLines(get_day1_input_path())
 
     output <- character(length(readings))
 
