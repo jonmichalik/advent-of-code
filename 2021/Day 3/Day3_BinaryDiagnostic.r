@@ -1,7 +1,11 @@
 # Day 3: Binary Diagnostic
 
+get_day3_input_path <- function() {
+    paste(getwd(), "/2021/Day 3/Day3_input.txt", sep = "")
+}
+
 part1 <- function() {
-    readings <- readLines("Day3_input.txt")
+    readings <- readLines(get_day3_input_path())
 
     total_readings <- length(readings)
     diag_len <- nchar(readings[1])
@@ -31,7 +35,7 @@ part1 <- function() {
 }
 
 part2 <- function() {
-    readings <- readLines("Day3_input.txt")
+    readings <- readLines(get_day3_input_path())
 
     total_readings <- length(readings)
     diag_len <- nchar(readings[1])

@@ -1,7 +1,11 @@
 # Day 2: Dive!
 
+get_day2_input_path <- function() {
+    paste(getwd(), "/2021/Day 2/Day2_input.txt", sep = "")
+}
+
 part1 <- function() {
-    commands <- readLines("Day2_input.txt")
+    commands <- readLines(get_day2_input_path())
     position <- 0
     depth <- 0
 
@@ -22,7 +26,7 @@ part1 <- function() {
 }
 
 part2 <- function() {
-    commands <- readLines("Day2_input.txt")
+    commands <- readLines(get_day2_input_path())
     aim <- 0
     position <- 0
     depth <- 0

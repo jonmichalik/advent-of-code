@@ -1,7 +1,11 @@
 # Day 4: Giant Squid
 
+get_day4_input_path <- function() {
+    paste(getwd(), "/2021/Day 4/Day4_input.txt", sep = "")
+}
+
 part1 <- function() {
-    readings <- readLines("Day4_input.txt")
+    readings <- readLines(get_day4_input_path())
 
     call_numbers <- unlist(strsplit(readings[1], ","))
     row_size <- 5
@@ -18,7 +22,7 @@ part1 <- function() {
 }
 
 part2 <- function() {
-    readings <- readLines("Day4_input.txt")
+    readings <- readLines(get_day4_input_path())
 
     call_numbers <- unlist(strsplit(readings[1], ","))
     row_size <- 5

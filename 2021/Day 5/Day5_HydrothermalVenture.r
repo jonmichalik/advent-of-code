@@ -1,7 +1,11 @@
 # Day 5: Hydrothermal Venture
 
+get_day5_input_path <- function() {
+    paste(getwd(), "/2021/Day 5/Day5_input.txt", sep = "")
+}
+
 part1 <- function() {
-    readings <- readLines("Day5_input.txt")
+    readings <- readLines(get_day5_input_path())
 
     plot <- matrix(0, ncol = 1000, nrow = 1000)
     for (i in seq_len(length(readings))) {
@@ -31,7 +35,7 @@ part1 <- function() {
 }
 
 part2 <- function() {
-    readings <- readLines("Day5_input.txt")
+    readings <- readLines(get_day5_input_path())
 
     plot <- matrix(0, ncol = 1000, nrow = 1000)
     for (i in seq_len(length(readings))) {
