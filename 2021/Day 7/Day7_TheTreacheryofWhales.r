@@ -16,8 +16,6 @@ part1 <- function(fuel_type = "standard") {
         crabs <- rbind(crabs, c(unique_crab_pos[i], sum_crabs_in_pos))
     }
 
-    crabs <- crabs[order(crabs[, 2]), ]
-
     optimal_pos <- 0
     optimal_fuel <- 2147483647
 
