@@ -14,18 +14,15 @@ part1 <- function() {
 
     for (i in seq_len(length(readings))) {
         line <- unlist(strsplit(readings[i], ""))
-        actual <- c()
         expected_closes <- c()
 
         for (c in seq_len(length(line))) {
             op_match <- match(line[c], open_chars)
             if (!is.na(op_match)) {
-                actual <- append(actual, line[c])
                 expected_closes <- append(expected_closes,
                                         close_chars[op_match])
             } else {
                 if (line[c] == expected_closes[length(expected_closes)]) {
-                    actual <- append(actual, line[c])
                     expected_closes <- expected_closes[-length(expected_closes)]
                 } else {
                     cl_match <- match(line[c], close_chars)
