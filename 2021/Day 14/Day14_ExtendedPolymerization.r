@@ -104,7 +104,7 @@ optimize_pairs <- function(polymer) {
 }
 
 polymerize_arr <- function(pairs, rules, calc_chars) {
-    pairs_to_add <- matrix(ncol = 2)[-1, ]
+    new_pairs <- matrix(ncol = 2)[-1, ]
 
     for (i in seq_len(nrow(pairs))) {
         element_to_insert <- rules[[pairs[i, 1]]]
@@ -115,7 +115,7 @@ polymerize_arr <- function(pairs, rules, calc_chars) {
         pair_arr[2] <- paste(element_to_insert, pair_arr[2], sep = "")
 
         for (p in seq_len(length(pair_arr))) {
-            pairs_to_add <- merge_set(pairs_to_add, pair_arr[p], pairs[i, 2])
+            new_pairs <- merge_set(new_pairs, pair_arr[p], pairs[i, 2])
         }
 
         if (calc_chars) {
@@ -123,7 +123,7 @@ polymerize_arr <- function(pairs, rules, calc_chars) {
             chars <<- merge_set(chars, element_to_insert, pairs[i, 2])
         }
     }
-    pairs_to_add
+    new_pairs
 }
 
 merge_set <- function(set, element, num_to_add) {
