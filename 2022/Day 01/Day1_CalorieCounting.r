@@ -38,14 +38,14 @@ part2 <- function() {
         calorie <- strtoi(calories[i])
 
         if (is.na(calorie)) {
-            all_totals <- (append(all_totals, current_elf_calories))
+            all_totals <- append(all_totals, current_elf_calories)
             current_elf_calories <- 0
         } else {
             current_elf_calories <- current_elf_calories + calorie
         }
 
         if (i == length(calories)) {
-            all_totals <- (append(all_totals, current_elf_calories))
+            all_totals <- append(all_totals, current_elf_calories)
         }
     }
 
