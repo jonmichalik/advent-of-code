@@ -1,7 +1,7 @@
 # Day 4: Giant Squid
 
 get_day4_input_path <- function() {
-    paste(getwd(), "/2021/Day 4/Day4_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 04/Day4_input.txt", sep = "")
 }
 
 part1 <- function() {

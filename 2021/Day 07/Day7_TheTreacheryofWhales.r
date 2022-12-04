@@ -1,7 +1,7 @@
 # Day 7: The Treachery of Whales
 
 get_day7_input_path <- function() {
-    paste(getwd(), "/2021/Day 7/Day7_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 07/Day7_input.txt", sep = "")
 }
 
 part1 <- function(fuel_type = "standard") {

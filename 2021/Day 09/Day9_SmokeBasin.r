@@ -1,7 +1,7 @@
 # Day 9: Smoke Basin
 
 get_day9_input_path <- function() {
-    paste(getwd(), "/2021/Day 9/Day9_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 09/Day9_input.txt", sep = "")
 }
 
 part1 <- function() {

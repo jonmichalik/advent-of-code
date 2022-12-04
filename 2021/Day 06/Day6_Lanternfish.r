@@ -1,7 +1,7 @@
 # Day 6: Lanternfish
 
 get_day6_input_path <- function() {
-    paste(getwd(), "/2021/Day 6/Day6_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 06/Day6_input.txt", sep = "")
 }
 
 part1 <- function(num_days = 80) {

@@ -1,7 +1,7 @@
 # Day 1: Sonar Sweep
 
 get_day1_input_path <- function() {
-    paste(getwd(), "/2021/Day 1/Day1_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 01/Day1_input.txt", sep = "")
 }
 
 part1 <- function() {

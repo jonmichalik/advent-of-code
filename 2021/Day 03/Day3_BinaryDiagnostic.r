@@ -1,7 +1,7 @@
 # Day 3: Binary Diagnostic
 
 get_day3_input_path <- function() {
-    paste(getwd(), "/2021/Day 3/Day3_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 03/Day3_input.txt", sep = "")
 }
 
 part1 <- function() {

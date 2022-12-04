@@ -1,7 +1,7 @@
 # Day 2: Dive!
 
 get_day2_input_path <- function() {
-    paste(getwd(), "/2021/Day 2/Day2_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 02/Day2_input.txt", sep = "")
 }
 
 part1 <- function() {

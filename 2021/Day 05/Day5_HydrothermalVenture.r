@@ -1,7 +1,7 @@
 # Day 5: Hydrothermal Venture
 
 get_day5_input_path <- function() {
-    paste(getwd(), "/2021/Day 5/Day5_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 05/Day5_input.txt", sep = "")
 }
 
 part1 <- function() {

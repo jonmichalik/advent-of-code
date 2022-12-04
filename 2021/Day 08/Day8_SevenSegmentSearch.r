@@ -1,7 +1,7 @@
 # Day 8: Seven Segment Search
 
 get_day8_input_path <- function() {
-    paste(getwd(), "/2021/Day 8/Day8_input.txt", sep = "")
+    paste(getwd(), "/2021/Day 08/Day8_input.txt", sep = "")
 }
 
 part1 <- function() {
