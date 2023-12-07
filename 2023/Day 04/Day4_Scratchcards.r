@@ -39,7 +39,33 @@ part1 <- function() {
 }
 
 part2 <- function() {
-    print("TODO")
+    cards <- readLines(get_day4_input_path())
+
+    num_each_card <- rep(c(1), length(cards))
+
+    for (c in seq_len(length(cards))) {
+        card <- unlist(strsplit(cards[c], ":"))[2]
+        card_winnings <- 0
+        num_cur_card <- num_each_card[c]
+
+        split <- unlist(strsplit(card, "\\|"))
+
+        winning_nums <- unlist(strsplit(split[1], " "))
+        winning_nums <- winning_nums[nzchar(winning_nums)]
+
+        pool <- unlist(strsplit(split[2], " "))
+        pool <- pool[nzchar(pool)]
+
+        for (n in seq_len(length(pool))) {
+            if (pool[n] %in% winning_nums) {
+                card_winnings <- card_winnings + 1
+                num_each_card[c + card_winnings] <-
+                    num_each_card[c + card_winnings] + num_cur_card
+            }
+        }
+    }
+
+    print(sum(num_each_card))
 }
 
 part1()
