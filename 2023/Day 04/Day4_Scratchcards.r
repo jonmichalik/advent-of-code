@@ -4,8 +4,6 @@ get_day4_input_path <- function() {
     paste(getwd(), "/2023/Day 04/Day4_input.txt", sep = "")
 }
 
-gears <- c()
-
 part1 <- function() {
     cards <- readLines(get_day4_input_path())
     scores <- c()
