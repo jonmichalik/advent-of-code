@@ -28,34 +28,13 @@ part1 <- function(joker = FALSE) {
 
     total_rankings <- 0
 
-    five_kind <- get_hands_of_type(ranked_hands, "5K")
-    four_kind <- get_hands_of_type(ranked_hands, "4K")
-    full_house <- get_hands_of_type(ranked_hands, "FH")
-    three_kind <- get_hands_of_type(ranked_hands, "3K")
-    two_pair <- get_hands_of_type(ranked_hands, "2P")
-    one_pair <- get_hands_of_type(ranked_hands, "1P")
-    high_card <- get_hands_of_type(ranked_hands, "HC")
+    for (t in seq_len(length(types))) {
+        type <- types[t]
 
-    ranked_hands <- calc_ranking(ranked_hands, high_card, total_rankings)
-    total_rankings <- total_rankings + length(high_card)
-
-    ranked_hands <- calc_ranking(ranked_hands, one_pair, total_rankings)
-    total_rankings <- total_rankings + length(one_pair)
-
-    ranked_hands <- calc_ranking(ranked_hands, two_pair, total_rankings)
-    total_rankings <- total_rankings + length(two_pair)
-
-    ranked_hands <- calc_ranking(ranked_hands, three_kind, total_rankings)
-    total_rankings <- total_rankings + length(three_kind)
-
-    ranked_hands <- calc_ranking(ranked_hands, full_house, total_rankings)
-    total_rankings <- total_rankings + length(full_house)
-
-    ranked_hands <- calc_ranking(ranked_hands, four_kind, total_rankings)
-    total_rankings <- total_rankings + length(four_kind)
-
-    ranked_hands <- calc_ranking(ranked_hands, five_kind, total_rankings)
-    total_rankings <- total_rankings + length(five_kind)
+        hands_of_type <- get_hands_of_type(ranked_hands, type)
+        ranked_hands <- calc_ranking(ranked_hands, hands_of_type, total_rankings)
+        total_rankings <- total_rankings + length(hands_of_type)
+    }
 
     winnings <- c()
     for (i in seq_len(length(ranked_hands))) {
